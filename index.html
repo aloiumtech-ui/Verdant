@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verdant — Proteine vegetali, risultati reali</title>
+<meta name="description" content="La guida che ti accompagna nella transizione al vegetale: sostituzioni, proteine, ricette e diario delle macro, tutto in un posto solo. Per non perdersi nelle prime settimane.">
+<meta property="og:title" content="Verdant — Cambiare dieta è dura. Da soli, di più.">
+<meta property="og:description" content="La guida che ti accompagna nella transizione al vegetale. Tutto in un posto solo, finché diventa naturale.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#173404;--green:#3B6D11;--leaf:#639922;--lime:#97C459;
+    --lime-soft:#C0DD97;--amber:#EF9F27;--oat:#F1EFE8;--paper:#FAF9F4;
+    --ink:#16210d;--muted:#6f7a63;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  a{text-decoration:none;color:inherit}
+
+  @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  .rise{opacity:0;animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+  .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}.d4{animation-delay:.35s}.d5{animation-delay:.45s}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(23,52,4,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(151,196,89,.15)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}
+  nav .brand{display:flex;align-items:center;gap:11px;color:#fff;font-weight:800;font-size:21px}
+  nav .cta{background:var(--amber);color:#4a2f02;font-weight:700;font-size:14px;padding:10px 20px;border-radius:10px;transition:transform .2s}
+  nav .cta:hover{transform:translateY(-2px)}
+
+  /* HERO */
+  .hero{background:var(--forest);color:var(--oat);position:relative;overflow:hidden;padding:84px 0 96px}
+  .hero::before{content:"";position:absolute;width:680px;height:680px;border-radius:50%;background:radial-gradient(circle,rgba(151,196,89,.10),transparent 68%);top:-220px;right:-180px}
+  .hero::after{content:"";position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(239,159,39,.07),transparent 70%);bottom:-200px;left:-140px}
+  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+  .hero .tag{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.08em;color:var(--forest);background:var(--lime);padding:7px 15px;border-radius:30px;margin-bottom:24px}
+  .hero h1{font-size:54px;font-weight:800;line-height:1.05;letter-spacing:-.025em;color:#fff;margin-bottom:22px}
+  .hero h1 em{font-style:normal;color:var(--lime)}
+  .hero p.lead{font-size:19px;color:var(--lime-soft);max-width:480px;margin-bottom:34px;line-height:1.55}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .btn-amber{background:var(--amber);color:#4a2f02;font-weight:700;font-size:16px;padding:15px 30px;border-radius:13px;transition:transform .2s;display:inline-block}
+  .btn-amber:hover{transform:translateY(-3px)}
+  .btn-ghost{color:#fff;font-weight:600;font-size:15px;border:1px solid rgba(255,255,255,.25);padding:14px 26px;border-radius:13px;transition:background .2s}
+  .btn-ghost:hover{background:rgba(255,255,255,.08)}
+
+  /* PHONE in hero */
+  .hero-phone{justify-self:center;width:276px;background:#0d2003;border-radius:36px;padding:12px;box-shadow:0 30px 80px rgba(0,0,0,.4);position:relative}
+  .hp-screen{background:var(--paper);border-radius:26px;overflow:hidden}
+  .hp-top{background:var(--green);padding:22px 20px 26px;color:#fff}
+  .hp-date{font-size:12px;color:var(--lime-soft)}
+  .hp-ring{margin:14px auto 2px;width:130px;height:130px;position:relative}
+  .hp-ring .v{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .hp-ring .num{font-size:34px;font-weight:800;line-height:1}
+  .hp-ring .unit{font-size:11px;color:var(--lime-soft);margin-top:3px}
+  .hp-macros{display:flex;justify-content:space-around;padding:14px 8px 4px}
+  .hp-macros .m{text-align:center}
+  .hp-macros .mv{font-size:15px;font-weight:700;color:#fff}
+  .hp-macros .ml{font-size:10px;color:var(--lime-soft)}
+  .hp-body{padding:14px 16px 20px}
+  .hp-meal{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid rgba(23,52,4,.07);border-radius:12px;padding:10px 12px;margin-bottom:8px}
+  .hp-meal .ic{width:30px;height:30px;border-radius:8px;background:var(--oat);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .hp-meal .nm{font-size:12px;font-weight:600;color:var(--forest)}
+  .hp-meal .mt{font-size:10px;color:var(--muted)}
+  .hp-meal .pv{margin-left:auto;font-size:12px;font-weight:700;color:var(--leaf)}
+
+  /* SECTIONS */
+  section{padding:88px 0}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--leaf);margin-bottom:14px}
+  h2{font-size:38px;font-weight:800;line-height:1.12;letter-spacing:-.02em;color:var(--forest);margin-bottom:18px}
+  .section-lead{font-size:18px;color:#3a4530;max-width:600px;margin-bottom:0}
+
+  /* TWO AUDIENCES */
+  .aud{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+  .aud-card{border-radius:22px;padding:38px 34px;position:relative;overflow:hidden}
+  .aud-card.veg{background:var(--forest);color:var(--oat)}
+  .aud-card.gym{background:var(--lime);color:var(--forest)}
+  .aud-card h3{font-size:24px;font-weight:800;margin-bottom:12px}
+  .aud-card.veg h3{color:#fff}
+  .aud-card p{font-size:16px;line-height:1.6}
+  .aud-card.veg p{color:var(--lime-soft)}
+  .aud-card.gym p{color:var(--green)}
+  .aud-card .ic{font-size:28px;margin-bottom:18px;display:block}
+
+  /* FEATURES */
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+  .feat{background:#fff;border:1px solid rgba(23,52,4,.08);border-radius:18px;padding:30px 26px;transition:transform .25s,box-shadow .25s}
+  .feat:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(23,52,4,.1)}
+  .feat .fic{width:46px;height:46px;border-radius:12px;background:var(--oat);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .feat h4{font-size:18px;font-weight:700;color:var(--forest);margin-bottom:8px}
+  .feat p{font-size:15px;color:#3a4530;line-height:1.55}
+
+  /* STATS band */
+  .band{background:var(--green);color:#fff}
+  .band .wrap{display:flex;justify-content:space-around;flex-wrap:wrap;gap:30px;text-align:center}
+  .band .stat .big{font-size:46px;font-weight:800;color:var(--lime);line-height:1}
+  .band .stat .lab{font-size:15px;color:var(--lime-soft);margin-top:8px}
+
+  /* HOW */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;counter-reset:s}
+  .step{position:relative;padding:30px 26px;background:var(--oat);border-radius:18px}
+  .step::before{counter-increment:s;content:counter(s);position:absolute;top:-16px;left:26px;width:38px;height:38px;background:var(--amber);color:#4a2f02;font-weight:800;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px}
+  .step h4{font-size:18px;font-weight:700;color:var(--forest);margin:14px 0 8px}
+  .step p{font-size:15px;color:#3a4530;line-height:1.55}
+
+  /* WAITLIST */
+  .wl{background:var(--forest);color:var(--oat);text-align:center}
+  .wl h2{color:#fff}
+  .wl p{font-size:18px;color:var(--lime-soft);max-width:520px;margin:0 auto 34px}
+  .wl-form{display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+  .wl-form input{flex:1;min-width:240px;padding:16px 20px;border-radius:13px;border:1px solid rgba(151,196,89,.3);background:rgba(255,255,255,.05);color:#fff;font-size:16px;font-family:inherit}
+  .wl-form input::placeholder{color:rgba(193,221,151,.6)}
+  .wl-form input:focus{outline:none;border-color:var(--lime)}
+  .wl-note{font-size:13px;color:rgba(193,221,151,.7);margin-top:18px}
+  .wl-ok{display:none;font-size:18px;font-weight:600;color:var(--lime);margin-top:24px}
+
+  /* FOOTER */
+  footer{background:#0d2003;color:var(--lime-soft);padding:40px 0;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  footer .brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:18px}
+
+  @media(max-width:860px){
+    .hero .wrap{grid-template-columns:1fr;gap:40px}
+    .hero h1{font-size:40px}
+    .hero-phone{order:-1}
+    .aud,.feat-grid,.steps{grid-template-columns:1fr}
+    h2{font-size:30px}
+    nav .brand span.full{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <svg width="34" height="34" viewBox="0 0 140 140"><rect width="140" height="140" rx="30" fill="#97C459"/><path d="M34 40 L70 112 L106 40 L86 40 L70 78 L54 40 Z" fill="#173404"/><path d="M86 40 C96 44, 102 36, 100 26 C90 26, 84 32, 86 40 Z" fill="#3B6D11"/></svg>
+      <span class="full">verdant</span>
+    </a>
+    <a href="#waitlist" class="cta">Unisciti alla lista</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="tag rise d1">In arrivo su iOS</span>
+      <h1 class="rise d2">Cambiare dieta è dura.<br><em>Da soli, di più.</em></h1>
+      <p class="lead rise d3">Le prime settimane da vegano sono un labirinto: cosa sostituire, dove prendere le proteine, come cucinare ingredienti che non hai mai usato. Le informazioni sono sparse ovunque — Verdant le mette in un posto solo e ti accompagna, finché il nuovo modo di mangiare diventa semplicemente il tuo.</p>
+      <div class="hero-cta rise d4">
+        <a href="#waitlist" class="btn-amber">Provala per primo</a>
+        <a href="#come-funziona" class="btn-ghost">Come funziona</a>
+      </div>
+    </div>
+    <div class="hero-phone rise d5">
+      <div class="hp-screen">
+        <div class="hp-top">
+          <div class="hp-date">Mercoledì 28 maggio</div>
+          <div class="hp-ring">
+            <svg width="130" height="130" viewBox="0 0 130 130">
+              <circle cx="65" cy="65" r="54" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="11"/>
+              <circle cx="65" cy="65" r="54" fill="none" stroke="#C0DD97" stroke-width="11" stroke-linecap="round" stroke-dasharray="339" stroke-dashoffset="80" transform="rotate(-90 65 65)"/>
+            </svg>
+            <div class="v"><div class="num">103</div><div class="unit">/ 132g proteine</div></div>
+          </div>
+          <div class="hp-macros">
+            <div class="m"><div class="mv">180g</div><div class="ml">carbo</div></div>
+            <div class="m"><div class="mv">52g</div><div class="ml">grassi</div></div>
+            <div class="m"><div class="mv">1840</div><div class="ml">kcal</div></div>
+          </div>
+        </div>
+        <div class="hp-body">
+          <div class="hp-meal"><div class="ic"><svg width="15" height="15" viewBox="0 0 140 140"><path d="M34 40 L70 112 L106 40 L86 40 L70 78 L54 40 Z" fill="#639922"/></svg></div><div><div class="nm">Tofu strapazzato</div><div class="mt">Colazione</div></div><div class="pv">22g</div></div>
+          <div class="hp-meal"><div class="ic"><svg width="15" height="15" viewBox="0 0 140 140"><path d="M34 40 L70 112 L106 40 L86 40 L70 78 L54 40 Z" fill="#639922"/></svg></div><div><div class="nm">Lenticchie &amp; quinoa</div><div class="mt">Pranzo</div></div><div class="pv">31g</div></div>
+          <div class="hp-meal"><div class="ic"><svg width="15" height="15" viewBox="0 0 140 140"><path d="M34 40 L70 112 L106 40 L86 40 L70 78 L54 40 Z" fill="#639922"/></svg></div><div><div class="nm">Shake proteico</div><div class="mt">Post-workout</div></div><div class="pv">28g</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Perché esiste</div>
+    <h2>È nata da chi c'è passato.</h2>
+    <p class="section-lead">Verdant non l'ha pensata un'azienda. L'ha costruita qualcuno che è diventato vegano e si è perso nelle prime settimane: nessun manuale chiaro, informazioni ovunque, e la sensazione che mollare fosse più facile che continuare. Questa è l'app che sarebbe servita allora.</p>
+    <div class="aud">
+      <div class="aud-card veg">
+        <span class="ic">🧭</span>
+        <h3>Hai appena iniziato</h3>
+        <p>Sei tu il motivo per cui Verdant esiste. Una guida che ti prende per mano: cosa sostituire, come arrivare alle proteine, come usare gli ingredienti nuovi. Un passo alla volta, finché diventa naturale.</p>
+      </div>
+      <div class="aud-card gym">
+        <span class="ic">💪</span>
+        <h3>Sei già vegano e ti alleni</h3>
+        <p>Anche per te. Tieni le macro sotto controllo, scopri ricette nuove ad alto contenuto proteico e smetti di chiederti se stai prendendo abbastanza. Gli strumenti restano, l'ansia no.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff" id="come-funziona">
+  <div class="wrap">
+    <div class="eyebrow">Cosa fa</div>
+    <h2>Tutto quello che serve, niente di superfluo.</h2>
+    <div class="feat-grid">
+      <div class="feat">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B6D11" stroke-width="2"><path d="M3 5h12a3 3 0 013 3v11a2.5 2.5 0 00-2.5-2.5H3zM21 5H9"/></svg></div>
+        <h4>La guida che non avevi</h4>
+        <p>Il manuale chiaro che manca quando inizi: sostituzioni, proteine, ferro, B12, come usare ogni ingrediente. Calibrato sul punto in cui sei, un passo alla volta.</p>
+      </div>
+      <div class="feat">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B6D11" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h4>Diario delle macro</h4>
+        <p>Proteine, carboidrati, grassi e calorie. Imposta i tuoi obiettivi, registra un pasto in pochi tap, vedi i progressi in tempo reale.</p>
+      </div>
+      <div class="feat">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B6D11" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div>
+        <h4>Ricette ad alte proteine</h4>
+        <p>Decine di ricette vegetali filtrate per contenuto proteico. Macro calcolate, pronte da aggiungere al diario con un tocco.</p>
+      </div>
+      <div class="feat">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B6D11" stroke-width="2"><path d="M12 3v18M5 8l7-5 7 5"/></svg></div>
+        <h4>Obiettivo su misura</h4>
+        <p>Inserisci il tuo peso e Verdant calcola il fabbisogno proteico da atleta, in grammi per chilo. Niente numeri a caso.</p>
+      </div>
+      <div class="feat">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B6D11" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+        <h4>Dizionario ingredienti</h4>
+        <p>Le migliori fonti proteiche vegetali, come usarle, cosa sostituiscono. Una guida pratica sempre in tasca.</p>
+      </div>
+      <div class="feat">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B6D11" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></div>
+        <h4>Ingredienti personali</h4>
+        <p>Manca qualcosa? Crea il tuo ingrediente con le sue macro. Resta privato, sempre disponibile per i tuoi log.</p>
+      </div>
+      <div class="feat">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B6D11" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h4>Sostituzioni intelligenti</h4>
+        <p>Mangiavi questo? Ecco l'alternativa vegetale con le stesse proteine. Smetti di cercare su dieci siti diversi: la risposta è già qui.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="stat"><div class="big">2-3</div><div class="lab">settimane: il momento in cui molti mollano</div></div>
+    <div class="stat"><div class="big">1 posto</div><div class="lab">per tutto, invece di dieci schede aperte</div></div>
+    <div class="stat"><div class="big">4</div><div class="lab">macro sempre sotto controllo</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Come funziona</div>
+    <h2>Dal peso al piatto in tre passi.</h2>
+    <div class="steps">
+      <div class="step">
+        <h4>Imposta il tuo obiettivo</h4>
+        <p>Dicci come mangi e quanto pesi. Calcoliamo il tuo fabbisogno proteico e ti lasciamo regolare le altre macro.</p>
+      </div>
+      <div class="step">
+        <h4>Registra cosa mangi</h4>
+        <p>Scegli da ingredienti e ricette, o crea i tuoi. L'anello si aggiorna a ogni pasto.</p>
+      </div>
+      <div class="step">
+        <h4>Centra il traguardo</h4>
+        <p>Vedi i progressi giorno per giorno e arrivi a sera sapendo di aver fatto sul serio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wl" id="waitlist">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--lime)">Lancio in arrivo</div>
+    <h2>Sii tra i primi a provare Verdant.</h2>
+    <p>Lascia la tua mail: ti avvisiamo appena l'app è disponibile su TestFlight. Niente spam, solo l'invito al lancio.</p>
+    <div class="wl-form">
+      <input type="email" id="email" placeholder="La tua email" aria-label="La tua email">
+      <button class="btn-amber" onclick="joinWaitlist()">Avvisami</button>
+    </div>
+    <div class="wl-note">Rispettiamo la tua privacy. Useremo la mail solo per l'invito al lancio.</div>
+    <div class="wl-ok" id="wlok">Sei in lista. Ti scriviamo presto. 🌱</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">
+      <svg width="28" height="28" viewBox="0 0 140 140"><rect width="140" height="140" rx="30" fill="#97C459"/><path d="M34 40 L70 112 L106 40 L86 40 L70 78 L54 40 Z" fill="#173404"/><path d="M86 40 C96 44, 102 36, 100 26 C90 26, 84 32, 86 40 Z" fill="#3B6D11"/></svg>
+      verdant
+    </div>
+    <div>© 2026 Verdant · Proteine vegetali, risultati reali</div>
+  </div>
+</footer>
+
+<script>
+  function joinWaitlist(){
+    var email = document.getElementById('email').value.trim();
+    var ok = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+    if(!ok){
+      var input = document.getElementById('email');
+      input.style.borderColor = '#EF9F27';
+      input.focus();
+      return;
+    }
+    document.querySelector('.wl-form').style.display = 'none';
+    document.querySelector('.wl-note').style.display = 'none';
+    document.getElementById('wlok').style.display = 'block';
+  }
+  document.getElementById('email').addEventListener('keydown', function(e){
+    if(e.key === 'Enter') joinWaitlist();
+  });
+</script>
+</body>
+</html>
